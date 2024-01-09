@@ -56,3 +56,30 @@ INSERT INTO `StudentCourses` (`StudentId`, `CourseId`) VALUES ('2','1');
 INSERT INTO `StudentCourses` (`StudentId`, `CourseId`) VALUES ('3','2');
 
 SELECT * FROM `StudentCourses`;
+
+#Retrieve all students 
+SELECT * FROM Students;
+
+#Retrieve all Courses
+SELECT * FROM Courses;
+
+#Retrieve all student-course mappings 
+SELECT * FROM StudentCourses;
+
+#Retrieve students enrolled in a specific course 
+SELECT Students.* FROM Students JOIN StudentCourses ON Students.id = StudentCourses.StudentId WHERE StudentCourses.CourseId = 2;
+
+#Enroll a student in a course 
+INSERT INTO StudentCourses (StudentId, CourseId) VALUES (2, 3);
+
+#Retrieve students who are not enrolled in any course
+SELECT Students.*
+FROM Students
+LEFT JOIN StudentCourses ON Students.id = StudentCourses.StudentId
+WHERE StudentCourses.StudentId IS NULL;
+
+#Update student information
+UPDATE Students SET name = 'Tina' WHERE id = 1;
+
+#Delete a student
+DELETE FROM Students WHERE id = 2;
