@@ -65,4 +65,23 @@ UPDATE Students SET name = 'Tina' WHERE id = 1;
 3.3 Delete a student
 DELETE FROM Students WHERE id = 2;
 
+## Database Schema
++------------------+       +------------------+
+|     Students     |       |     Courses      |
++------------------+       +------------------+
+| id (PK)          |       | id (PK)          |
+| name             |       | name             |
+| AGE              |       | Price            |
+| phone            |       +------------------+
++------------------+
 
+         |
+         |
+         v
+
++-------------------+
+|  StudentCourses   |
++-------------------+
+| StudentId (FK)    |
+| CourseId (FK)     |
++-------------------+
